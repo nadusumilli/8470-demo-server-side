@@ -2493,9 +2493,9 @@ define("democlient/templates/adminnav", ["exports"], function (exports) {
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element5 = dom.childAt(fragment, [0]);
+          var element1 = dom.childAt(fragment, [0]);
           var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element5);
+          morphs[0] = dom.createElementMorph(element1);
           return morphs;
         },
         statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [2, 36], [2, 66]]], 0, 0]],
@@ -2537,188 +2537,12 @@ define("democlient/templates/adminnav", ["exports"], function (exports) {
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element4 = dom.childAt(fragment, [0]);
-          var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element4);
-          return morphs;
-        },
-        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [4, 42], [4, 72]]], 0, 0]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child2 = (function () {
-      return {
-        meta: {
-          "revision": "Ember@2.8.3",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 5,
-              "column": 0
-            },
-            "end": {
-              "line": 5,
-              "column": 166
-            }
-          },
-          "moduleName": "democlient/templates/adminnav.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createElement("a");
-          var el2 = dom.createElement("span");
-          dom.setAttribute(el2, "class", "glyphicon glyphicon-road");
-          dom.setAttribute(el2, "aria-hidden", "true");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode(" Experiment Driver");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element3 = dom.childAt(fragment, [0]);
-          var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element3);
-          return morphs;
-        },
-        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [5, 48], [5, 78]]], 0, 0]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child3 = (function () {
-      return {
-        meta: {
-          "revision": "Ember@2.8.3",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 6,
-              "column": 0
-            },
-            "end": {
-              "line": 6,
-              "column": 162
-            }
-          },
-          "moduleName": "democlient/templates/adminnav.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createElement("a");
-          var el2 = dom.createElement("span");
-          dom.setAttribute(el2, "class", "glyphicon glyphicon-folder-open");
-          dom.setAttribute(el2, "aria-hidden", "true");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode(" Task Sets");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element2 = dom.childAt(fragment, [0]);
-          var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element2);
-          return morphs;
-        },
-        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [6, 45], [6, 75]]], 0, 0]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child4 = (function () {
-      return {
-        meta: {
-          "revision": "Ember@2.8.3",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 8,
-              "column": 0
-            },
-            "end": {
-              "line": 8,
-              "column": 162
-            }
-          },
-          "moduleName": "democlient/templates/adminnav.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createElement("a");
-          var el2 = dom.createElement("span");
-          dom.setAttribute(el2, "class", "glyphicon glyphicon-envelope");
-          dom.setAttribute(el2, "aria-hidden", "true");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode(" Emailitems");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element1 = dom.childAt(fragment, [0]);
-          var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element1);
-          return morphs;
-        },
-        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [8, 47], [8, 77]]], 0, 0]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child5 = (function () {
-      return {
-        meta: {
-          "revision": "Ember@2.8.3",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 9,
-              "column": 0
-            },
-            "end": {
-              "line": 9,
-              "column": 159
-            }
-          },
-          "moduleName": "democlient/templates/adminnav.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createElement("a");
-          var el2 = dom.createElement("span");
-          dom.setAttribute(el2, "class", "glyphicon glyphicon-comment");
-          dom.setAttribute(el2, "aria-hidden", "true");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode(" Feedlings");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var element0 = dom.childAt(fragment, [0]);
           var morphs = new Array(1);
           morphs[0] = dom.createElementMorph(element0);
           return morphs;
         },
-        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [9, 46], [9, 76]]], 0, 0]],
+        statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [4, 42], [4, 72]]], 0, 0]],
         locals: [],
         templates: []
       };
@@ -2733,7 +2557,7 @@ define("democlient/templates/adminnav", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 5,
             "column": 0
           }
         },
@@ -2764,44 +2588,17 @@ define("democlient/templates/adminnav", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("li");
-        dom.setAttribute(el1, "class", "nav-header");
-        var el2 = dom.createTextNode("Manage Content");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(6);
+        var morphs = new Array(2);
         morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 6, 6, contextualElement);
-        morphs[2] = dom.createMorphAt(fragment, 8, 8, contextualElement);
-        morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
-        morphs[4] = dom.createMorphAt(fragment, 14, 14, contextualElement);
-        morphs[5] = dom.createMorphAt(fragment, 16, 16, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["admin"], ["tagName", "li"], 0, null, ["loc", [null, [2, 0], [2, 161]]]], ["block", "link-to", ["admin.users"], ["tagName", "li"], 1, null, ["loc", [null, [4, 0], [4, 161]]]], ["block", "link-to", ["admin.experiments"], ["tagName", "li"], 2, null, ["loc", [null, [5, 0], [5, 178]]]], ["block", "link-to", ["admin.tasksets"], ["tagName", "li"], 3, null, ["loc", [null, [6, 0], [6, 174]]]], ["block", "link-to", ["admin.emailitems"], ["tagName", "li"], 4, null, ["loc", [null, [8, 0], [8, 174]]]], ["block", "link-to", ["admin.feedlings"], ["tagName", "li"], 5, null, ["loc", [null, [9, 0], [9, 171]]]]],
+      statements: [["block", "link-to", ["admin"], ["tagName", "li"], 0, null, ["loc", [null, [2, 0], [2, 161]]]], ["block", "link-to", ["admin.users"], ["tagName", "li"], 1, null, ["loc", [null, [4, 0], [4, 161]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3, child4, child5]
+      templates: [child0, child1]
     };
   })());
 });
