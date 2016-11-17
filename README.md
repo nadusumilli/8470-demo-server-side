@@ -7,6 +7,7 @@ To install this app you will need to install several django dependencies first. 
 
 * fork this repo
 * `git clone <repository-url>` your repository
+* install django, e.g. `pip install django`
 * `pip install djangorestframework`
 * `pip install markdown`
 * `pip install django-filter`
