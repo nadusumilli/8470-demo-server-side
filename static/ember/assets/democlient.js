@@ -10105,7 +10105,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("democlient/app")["default"].create({"name":"democlient","version":"0.0.0+"});
+  require("democlient/app")["default"].create({"name":"democlient","version":"0.0.0+4162fd51"});
 }
 
 /* jshint ignore:end */
