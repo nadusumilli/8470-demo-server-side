@@ -18,7 +18,7 @@ from rest_framework.decorators import *
 from rest_framework.authentication import *
 
 #filters
-from filters.mixins import *
+#from filters.mixins import *
 from api.serializers import *
 from api.pagination import *
 def home(request):

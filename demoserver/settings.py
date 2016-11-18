@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'rest_framework_json_api',
-    'filters'
+    #'filters'
 ]
 
 MIDDLEWARE_CLASSES = [
