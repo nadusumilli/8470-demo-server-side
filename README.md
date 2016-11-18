@@ -12,7 +12,6 @@ To install this app you will need to install several django dependencies first. 
 * `pip install djangorestframework-filters`
 * `pip install djangorestframework-jsonapi`
 * `pip install markdown`
-* `pip install django-filter`
 
 #Running the app
 * `cd` to the django directory, e.g. `../8470-demo-server-side/`
