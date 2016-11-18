@@ -9,9 +9,10 @@ To install this app you will need to install several django dependencies first. 
 * `git clone <repository-url>` your repository
 * install django, e.g. `pip install Django`
 * `pip install djangorestframework`
+* `pip install djangorestframework-filters`
+* `pip install djangorestframework-jsonapi`
 * `pip install markdown`
 * `pip install django-filter`
-* `pip install djangorestframework-jsonapi`
 
 #Running the app
 * `cd` to the django directory, e.g. `../8470-demo-server-side/`
