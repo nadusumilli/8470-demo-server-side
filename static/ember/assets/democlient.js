@@ -602,13 +602,14 @@ define('democlient/controllers/admin/user', ['exports', 'ember'], function (expo
 				var user = this.get('content');
 				var t = this;
 				user.get('profile').get('content').save();
-				user.save().then(function (response) {
-					//Bootstrap.GNM.push('Saved', 'Saved '+user.get('username'), 'success');
-				}, function (response) {
+				user.save().then( //function(response){
+				//Bootstrap.GNM.push('Saved', 'Saved '+user.get('username'), 'success');
+				//},
+				function (response) {
 					var errMsg = '';
-					if (response.responseText.search('email') != -1) {
+					if (response.responseText.search('email') !== -1) {
 						errMsg = "Someone else is using that email";
-					} else if (response.responseText.search('username') != -1) {
+					} else if (response.responseText.search('username') !== -1) {
 						errMsg = "Someone else is using that username, please select another";
 					} else {
 						errMsg = "An unknown error occured. Please try again";
@@ -625,7 +626,7 @@ define('democlient/controllers/admin/user', ['exports', 'ember'], function (expo
 				user.save().then(function () {/**never gets called**/}, function (response) {
 					//response callback
 					console.log('Response is ' + JSON.stringify(response));
-					if (response.status == 200) {
+					if (response.status === 200) {
 						//Bootstrap.GNM.push('Item Deleted', 'item removed from database', 'success');
 					} else {
 							//error handler (response.status == 500)
@@ -668,7 +669,7 @@ define('democlient/controllers/register', ['exports', 'ember'], function (export
     }),
     passwordChanged: _ember['default'].observer('content.user.password', function () {
       var user = this.get('content').user;
-      if (user.get('password') == undefined || user.get('password') == '') {
+      if (user.get('password') === undefined || user.get('password') === '') {
         this.set('passworderror', 'You must specify a password.');
         this.set('passwordclasses', 'has-error');
       } else if (user.get('password').length < 8) {
@@ -1127,6 +1128,7 @@ define('democlient/router', ['exports', 'ember', 'democlient/config/environment'
       this.route('user', { path: "/users/:user_id" });
     });
     this.route('home');
+    this.route('profile', { path: "/profiles/:profile_id" });
   });
 
   exports['default'] = Router;
@@ -1153,6 +1155,13 @@ define('democlient/routes/home', ['exports', 'ember'], function (exports, _ember
 });
 define('democlient/routes/login', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
+});
+define('democlient/routes/profile', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Route.extend({
+		model: function model(params) {
+			return this.store.findRecord('profile', params.profile_id);
+		}
+	});
 });
 define('democlient/routes/register', ['exports', 'ember', 'rsvp'], function (exports, _ember, _rsvp) {
   exports['default'] = _ember['default'].Route.extend({
@@ -2614,7 +2623,7 @@ define("democlient/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 25,
+            "line": 26,
             "column": 6
           }
         },
@@ -2692,7 +2701,7 @@ define("democlient/templates/application", ["exports"], function (exports) {
         morphs[1] = dom.createMorphAt(dom.childAt(fragment, [4, 1]), 7, 7);
         return morphs;
       },
-      statements: [["content", "nav-bar", ["loc", [null, [4, 0], [4, 11]]], 0, 0, 0, 0], ["content", "outlet", ["loc", [null, [19, 2], [19, 12]]], 0, 0, 0, 0]],
+      statements: [["content", "nav-bar", ["loc", [null, [4, 0], [4, 11]]], 0, 0, 0, 0], ["content", "outlet", ["loc", [null, [20, 2], [20, 12]]], 0, 0, 0, 0]],
       locals: [],
       templates: []
     };
@@ -7340,9 +7349,9 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element2 = dom.childAt(fragment, [1]);
+          var element3 = dom.childAt(fragment, [1]);
           var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element2);
+          morphs[0] = dom.createElementMorph(element3);
           return morphs;
         },
         statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [18, 9], [18, 39]]], 0, 0]],
@@ -7389,9 +7398,9 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element1 = dom.childAt(fragment, [1]);
+            var element2 = dom.childAt(fragment, [1]);
             var morphs = new Array(1);
-            morphs[0] = dom.createElementMorph(element1);
+            morphs[0] = dom.createElementMorph(element2);
             return morphs;
           },
           statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [22, 10], [22, 40]]], 0, 0]],
@@ -7400,6 +7409,54 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
         };
       })();
       var child1 = (function () {
+        return {
+          meta: {
+            "revision": "Ember@2.8.3",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 24,
+                "column": 6
+              },
+              "end": {
+                "line": 26,
+                "column": 6
+              }
+            },
+            "moduleName": "democlient/templates/components/nav-bar.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("							");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("a");
+            var el2 = dom.createElement("span");
+            dom.setAttribute(el2, "class", "glyphicon glyphicon-user");
+            dom.setAttribute(el2, "aria-hidden", "true");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode(" Profile");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element1 = dom.childAt(fragment, [1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createElementMorph(element1);
+            return morphs;
+          },
+          statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [25, 10], [25, 40]]], 0, 0]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child2 = (function () {
         var child0 = (function () {
           return {
             meta: {
@@ -7407,11 +7464,11 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 25,
+                  "line": 28,
                   "column": 7
                 },
                 "end": {
-                  "line": 27,
+                  "line": 30,
                   "column": 7
                 }
               },
@@ -7443,7 +7500,7 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
               morphs[0] = dom.createElementMorph(element0);
               return morphs;
             },
-            statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [26, 11], [26, 41]]], 0, 0]],
+            statements: [["element", "bind-attr", [], ["href", "view.href"], ["loc", [null, [29, 11], [29, 41]]], 0, 0]],
             locals: [],
             templates: []
           };
@@ -7454,11 +7511,11 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
             "loc": {
               "source": null,
               "start": {
-                "line": 24,
+                "line": 27,
                 "column": 6
               },
               "end": {
-                "line": 28,
+                "line": 31,
                 "column": 6
               }
             },
@@ -7481,7 +7538,7 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "link-to", ["admin"], ["tagName", "li"], 0, null, ["loc", [null, [25, 7], [27, 19]]]]],
+          statements: [["block", "link-to", ["admin"], ["tagName", "li"], 0, null, ["loc", [null, [28, 7], [30, 19]]]]],
           locals: [],
           templates: [child0]
         };
@@ -7496,7 +7553,7 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
               "column": 5
             },
             "end": {
-              "line": 29,
+              "line": 32,
               "column": 5
             }
           },
@@ -7512,19 +7569,22 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
           dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(2);
+          var morphs = new Array(3);
           morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
           morphs[1] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[2] = dom.createMorphAt(fragment, 2, 2, contextualElement);
           dom.insertBoundary(fragment, 0);
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "link-to", ["home"], ["tagName", "li"], 0, null, ["loc", [null, [21, 6], [23, 18]]]], ["block", "if", [["get", "auth.profile.roles.admin", ["loc", [null, [24, 12], [24, 36]]], 0, 0, 0, 0]], [], 1, null, ["loc", [null, [24, 6], [28, 13]]]]],
+        statements: [["block", "link-to", ["home"], ["tagName", "li"], 0, null, ["loc", [null, [21, 6], [23, 18]]]], ["block", "link-to", ["profiles", ["get", "auth.profile.id", ["loc", [null, [24, 27], [24, 42]]], 0, 0, 0, 0]], ["tagName", "li"], 1, null, ["loc", [null, [24, 6], [26, 18]]]], ["block", "if", [["get", "auth.profile.roles.admin", ["loc", [null, [27, 12], [27, 36]]], 0, 0, 0, 0]], [], 2, null, ["loc", [null, [27, 6], [31, 13]]]]],
         locals: [],
-        templates: [child0, child1]
+        templates: [child0, child1, child2]
       };
     })();
     return {
@@ -7537,7 +7597,7 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
             "column": 0
           },
           "end": {
-            "line": 35,
+            "line": 38,
             "column": 6
           }
         },
@@ -7631,17 +7691,17 @@ define("democlient/templates/components/nav-bar", ["exports"], function (exports
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element3 = dom.childAt(fragment, [0, 1]);
-        var element4 = dom.childAt(element3, [1]);
-        var element5 = dom.childAt(element3, [4, 3, 1]);
+        var element4 = dom.childAt(fragment, [0, 1]);
+        var element5 = dom.childAt(element4, [1]);
+        var element6 = dom.childAt(element4, [4, 3, 1]);
         var morphs = new Array(4);
-        morphs[0] = dom.createMorphAt(dom.childAt(element4, [1]), 1, 1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
-        morphs[2] = dom.createMorphAt(element5, 3, 3);
-        morphs[3] = dom.createMorphAt(element5, 4, 4);
+        morphs[0] = dom.createMorphAt(dom.childAt(element5, [1]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element5, [3]), 1, 1);
+        morphs[2] = dom.createMorphAt(element6, 3, 3);
+        morphs[3] = dom.createMorphAt(element6, 4, 4);
         return morphs;
       },
-      statements: [["block", "link-to", ["application"], ["class", "navbar-brand"], 0, null, ["loc", [null, [5, 4], [5, 135]]]], ["content", "auth-bar", ["loc", [null, [8, 4], [8, 16]]], 0, 0, 0, 0], ["block", "link-to", ["register"], ["tagName", "li"], 1, null, ["loc", [null, [17, 5], [19, 17]]]], ["block", "if", [["get", "auth.isLoggedIn", ["loc", [null, [20, 11], [20, 26]]], 0, 0, 0, 0]], [], 2, null, ["loc", [null, [20, 5], [29, 12]]]]],
+      statements: [["block", "link-to", ["application"], ["class", "navbar-brand"], 0, null, ["loc", [null, [5, 4], [5, 135]]]], ["content", "auth-bar", ["loc", [null, [8, 4], [8, 16]]], 0, 0, 0, 0], ["block", "link-to", ["register"], ["tagName", "li"], 1, null, ["loc", [null, [17, 5], [19, 17]]]], ["block", "if", [["get", "auth.isLoggedIn", ["loc", [null, [20, 11], [20, 26]]], 0, 0, 0, 0]], [], 2, null, ["loc", [null, [20, 5], [32, 12]]]]],
       locals: [],
       templates: [child0, child1, child2]
     };
@@ -8271,7 +8331,7 @@ define("democlient/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 3,
             "column": 0
           }
         },
@@ -8283,6 +8343,16 @@ define("democlient/templates/home", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h1");
+        var el2 = dom.createTextNode("Hello ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode(" Welcome Home!");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -8290,12 +8360,12 @@ define("democlient/templates/home", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        dom.insertBoundary(fragment, 0);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
+        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]], 0, 0, 0, 0]],
+      statements: [["content", "auth.user.username", ["loc", [null, [1, 10], [1, 32]]], 0, 0, 0, 0], ["content", "outlet", ["loc", [null, [2, 0], [2, 10]]], 0, 0, 0, 0]],
       locals: [],
       templates: []
     };
@@ -8452,6 +8522,59 @@ define("democlient/templates/privacypolicy", ["exports"], function (exports) {
         return [];
       },
       statements: [],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("democlient/templates/profile", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@2.8.3",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "democlient/templates/profile.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h1");
+        var el2 = dom.createTextNode("Welcome ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("!");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2]), 1, 1);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]], 0, 0, 0, 0], ["content", "content.profile.age", ["loc", [null, [2, 12], [2, 35]]], 0, 0, 0, 0]],
       locals: [],
       templates: []
     };
@@ -9708,14 +9831,14 @@ define("democlient/templates/register", ["exports"], function (exports) {
 define('democlient/transforms/array', ['exports', 'ember-data', 'ember'], function (exports, _emberData, _ember) {
 	exports['default'] = _emberData['default'].Transform.extend({
 		deserialize: function deserialize(serialized) {
-			return _ember['default'].typeOf(serialized) == "array" ? serialized : [];
+			return _ember['default'].typeOf(serialized) === "array" ? serialized : [];
 		},
 
 		serialize: function serialize(deserialized) {
 			var type = _ember['default'].typeOf(deserialized);
-			if (type == 'array') {
+			if (type === 'array') {
 				return deserialized;
-			} else if (type == 'string') {
+			} else if (type === 'string') {
 				return deserialized.split(',').map(function (item) {
 					return _ember['default'].$.trim(item);
 				});
@@ -9747,7 +9870,7 @@ define('democlient/transforms/role', ['exports', 'ember-data', 'ember'], functio
 	exports['default'] = _emberData['default'].Transform.extend({
 		deserialize: function deserialize(serialized) {
 			var roles = _ember['default'].$.parseJSON(serialized);
-			return _ember['default'].typeOf(roles) == 'object' ? roles : null;
+			return _ember['default'].typeOf(roles) === 'object' ? roles : null;
 		},
 		serialize: function serialize(deserialized) {
 			return JSON.stringify(deserialized);
@@ -9902,7 +10025,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("democlient/app")["default"].create({"name":"democlient","version":"0.0.0+4162fd51"});
+  require("democlient/app")["default"].create({"name":"democlient","version":"0.0.0+ff6ef535"});
 }
 
 /* jshint ignore:end */

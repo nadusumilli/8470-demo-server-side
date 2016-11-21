@@ -15,3 +15,8 @@ class ProfileSerializer(serializers.ModelSerializer):
 	user = UserSerializer(read_only=True)
 	class Meta:
 		model = Profile
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = ('Name', 'Rating', 'Price')

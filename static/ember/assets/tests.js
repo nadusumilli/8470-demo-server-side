@@ -69,7 +69,7 @@ define('democlient/tests/controllers/admin/user.jshint', ['exports'], function (
   QUnit.module('JSHint | controllers/admin/user.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/admin/user.js should pass jshint.\ncontrollers/admin/user.js: line 13, col 40, \'response\' is defined but never used.\ncontrollers/admin/user.js: line 17, col 59, Expected \'!==\' and instead saw \'!=\'.\ncontrollers/admin/user.js: line 20, col 67, Expected \'!==\' and instead saw \'!=\'.\ncontrollers/admin/user.js: line 39, col 38, Expected \'===\' and instead saw \'==\'.\n\n4 errors');
+    assert.ok(true, 'controllers/admin/user.js should pass jshint.');
   });
 });
 define('democlient/tests/controllers/admin/users.jshint', ['exports'], function (exports) {
@@ -105,7 +105,7 @@ define('democlient/tests/controllers/register.jshint', ['exports'], function (ex
   QUnit.module('JSHint | controllers/register.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/register.js should pass jshint.\ncontrollers/register.js: line 19, col 31, Expected \'===\' and instead saw \'==\'.\ncontrollers/register.js: line 19, col 64, Expected \'===\' and instead saw \'==\'.\n\n2 errors');
+    assert.ok(true, 'controllers/register.js should pass jshint.');
   });
 });
 define('democlient/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -2160,6 +2160,15 @@ define('democlient/tests/routes/login.jshint', ['exports'], function (exports) {
     assert.ok(true, 'routes/login.js should pass jshint.');
   });
 });
+define('democlient/tests/routes/profile.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/profile.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/profile.js should pass jshint.');
+  });
+});
 define('democlient/tests/routes/register.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -2207,7 +2216,7 @@ define('democlient/tests/transforms/array.jshint', ['exports'], function (export
   QUnit.module('JSHint | transforms/array.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'transforms/array.js should pass jshint.\ntransforms/array.js: line 6, col 44, Expected \'===\' and instead saw \'==\'.\ntransforms/array.js: line 11, col 20, Expected \'===\' and instead saw \'==\'.\ntransforms/array.js: line 13, col 27, Expected \'===\' and instead saw \'==\'.\n\n3 errors');
+    assert.ok(true, 'transforms/array.js should pass jshint.');
   });
 });
 define('democlient/tests/transforms/object.jshint', ['exports'], function (exports) {
@@ -2225,7 +2234,7 @@ define('democlient/tests/transforms/role.jshint', ['exports'], function (exports
   QUnit.module('JSHint | transforms/role.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'transforms/role.js should pass jshint.\ntransforms/role.js: line 7, col 39, Expected \'===\' and instead saw \'==\'.\n\n1 error');
+    assert.ok(true, 'transforms/role.js should pass jshint.');
   });
 });
 define('democlient/tests/unit/adapters/application-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -3019,6 +3028,27 @@ define('democlient/tests/unit/routes/login-test.jshint', ['exports'], function (
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/login-test.js should pass jshint.');
+  });
+});
+define('democlient/tests/unit/routes/profile-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:profile', 'Unit | Route | profile', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('democlient/tests/unit/routes/profile-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/profile-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/profile-test.js should pass jshint.');
   });
 });
 define('democlient/tests/unit/routes/register-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

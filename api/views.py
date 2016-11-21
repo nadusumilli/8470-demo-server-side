@@ -41,7 +41,7 @@ class Register(APIView):
 		city = request.POST.get('city') #you need to apply validators to these
 		state = request.POST.get('state') #you need to apply validators to these
 
-		print request.POST.get('username')
+		print(request.POST.get('username'))
 		if User.objects.filter(username=username).exists():
 			return Response({'username': 'Username is taken.', 'status': 'error'})
 		elif User.objects.filter(email=email).exists():
@@ -105,3 +105,11 @@ class ProfileViewSet(viewsets.ModelViewSet):
 	resource_name = 'profiles'
 	queryset = Profile.objects.all()
 	serializer_class = ProfileSerializer
+
+class GameViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Games to be CRUDed.
+    """
+    resource_name = 'games'
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer

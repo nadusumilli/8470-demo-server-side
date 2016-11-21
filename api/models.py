@@ -6,6 +6,13 @@ from django.contrib.auth.models import *
 from django.contrib import admin
 
 # Create your models here.
+class Game(models.Model):
+    Name = models.CharField(max_length=512, blank=False)
+    Rating = models.CharField(max_length=512, blank=False)
+    Price = models.IntegerField(blank=False)
+ 
+    class JSONAPIMeta:
+        resource_name = "games"
 	
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)

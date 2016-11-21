@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', views.UserViewSet)
 router.register(r'profiles', views.ProfileViewSet)
+router.register(r'games', views.GameViewSet)
 
 urlpatterns = [
 	url(r'^session', csrf_exempt(views.Session.as_view())),
